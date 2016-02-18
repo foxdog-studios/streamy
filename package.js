@@ -22,9 +22,25 @@ Package.onUse(function (api) {
     'underscore',
   ]);
 
-  // Both
   api.addFiles([
     'lib/namespaces.js',
+    'lib/core/impl_base.js',
+  ]);
+
+  api.addFiles([
+    'lib/core/impl_client.js'
+  ], 'client');
+
+  api.addFiles([
+    'lib/core/impl_server.js'
+  ], 'server');
+
+  api.addFiles([
+    'lib/core/impl_instance.js'
+  ]);
+
+  // Both
+  api.addFiles([
     'lib/core/core.js',
     'lib/direct_messages/direct_messages.js',
     'lib/broadcasts/broadcasts.js',
