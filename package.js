@@ -1,3 +1,5 @@
+'use strict';
+
 Package.describe({
   name: 'yuukan:streamy',
   version: '1.3.0',
@@ -10,14 +12,14 @@ Package.describe({
   documentation: 'README.md'
 });
 
-Package.onUse(function(api) {
-  api.versionsFrom('1.0.3.1');
-
+Package.onUse(function (api) {
   api.use([
-    'underscore',
-    'mongo',
     'check',
-    'reactive-var'
+    'ecmascript',
+    'ecmascript-runtime',
+    'mongo',
+    'reactive-var',
+    'underscore',
   ]);
 
   // Both
@@ -44,8 +46,6 @@ Package.onUse(function(api) {
     'lib/broadcasts/broadcasts_server.js',
     'lib/utils/utils_server.js'
   ], 'server');
-
-  api.addFiles('lib/startup.js');
 
   api.export([
     'Streamy'

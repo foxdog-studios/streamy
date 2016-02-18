@@ -1,3 +1,5 @@
+Streamy.init();
+
 // Override Meteor._debug to filter for custom msgs
 Meteor._debug = (function (super_meteor_debug) {
   return function (error, info) {
@@ -37,7 +39,7 @@ function insertMessage(room, body, from) {
     return;
 
   var c = from ? Clients.findOne({ 'sid': from }): null;
-  
+
   if(from && !c)
     c = { 'nick': from };
 
@@ -142,7 +144,7 @@ Template.App.events({
       var end = val.indexOf(':', 3);
       to = findClient(val.substring(3, end));
       val = val.substring(end + 1).trim();
-      
+
       if(!to)
         return;
 
@@ -207,7 +209,7 @@ Template.App.helpers({
   messages: function() {
     var current_room = room.get();
 
-    return Messages.find({ 
+    return Messages.find({
       $or: [
         { 'room': current_room },
         { 'room': null } // Direct messages

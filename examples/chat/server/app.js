@@ -1,3 +1,5 @@
+Streamy.init();
+
 /**
  * Called upon a client connection, insert the user
  */
